@@ -1,0 +1,58 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/ADS_pirmas1.1.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+funkcijos1.h
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/funkcijos1.h
+BigInt.h
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/BigInt.h
+
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/BigInt.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+math.h
+-
+BigInt.h
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/BigInt.h
+
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/BigInt.h
+
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/funkcijos1.h
+stdbool.h
+-
+BigInt.h
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/BigInt.h
+time.h
+-
+
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stdbool.h
+-
+time.h
+-
+BigInt.h
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/BigInt.h
+funkcijos1.h
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/funkcijos1.h
+

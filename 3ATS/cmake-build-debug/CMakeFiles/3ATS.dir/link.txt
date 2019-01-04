@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/3ATS.dir/ADS_pirmas1.1.c.o CMakeFiles/3ATS.dir/BigInt.c.o CMakeFiles/3ATS.dir/main.c.o  -o 3ATS.exe -Wl,--out-implib,lib3ATS.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

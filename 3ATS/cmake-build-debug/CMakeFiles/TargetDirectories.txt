@@ -1,0 +1,3 @@
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/Povilas/Documents/VU/1 KURSAS/2 SEMESTRAS/ADS/PRAKTIKA/3ATS/cmake-build-debug/CMakeFiles/3ATS.dir

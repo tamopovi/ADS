@@ -1,0 +1,7 @@
+UZDUOTIS:
+6. Duota informacija, kas kam yra padaręs paslaugą 
+(gali būti situacijos, kad du žmonės yra padarę po paslaugą vienas kitam). 
+Jei A yra padaręs paslaugą B, tai gali tikėtis, kad tiek B, tiek visi, 
+kuriems B padarė paslaugą, paskolins jam pinigų. Patikrinti, ar, pavyzdžiui, 
+Jonas gali tikėtis, kad Marytė paskolins jam pinigų.
+ (grafo realizacija paremta kaimynystės sąrašais; naudoti paieškos į gylį metodą)

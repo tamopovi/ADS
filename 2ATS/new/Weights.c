@@ -1,0 +1,161 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define SIZE 2048
+void FileName(char *n)
+{
+    char c;
+    int j = 0;
+    while ((c = getchar()) != '\n')
+    {
+        *(n+j++) = c;
+    }
+    *(n+j++) = NULL;
+}
+void ReadFile(char *in_path, FILE *in_file, int *in_array, int *in_arraySize)
+{
+    in_file = fopen(in_path,"r");
+    if (in_file == NULL)
+    {
+        printf("Toks failas neegzistuoja.\n");
+        return 0;
+    }
+    int value, n = 0;
+    while(!feof(in_file))
+    {
+        fscanf(in_file,"%d",&value);
+        in_array[n] = value;
+        n++;
+    }
+    n--;
+    (*in_arraySize) = n;
+    fclose(in_file);
+}
+void Swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+void BubbleSort (int *arr, int arr_size)
+{
+    int i, j;
+    for (i = 0; i <= arr_size-1; i++)
+    {
+        for (j = i+1; j <= arr_size; j++)
+        {
+            if (arr[i] > arr[j])
+            {
+                Swap(&arr[i],&arr[j]);
+            }
+        }
+    }
+}
+int SumOfArray (int *arr, int arr_size)
+{
+    int i, sum = 0;
+    if(arr_size == 0) return 0;
+    for (i = 0; i < arr_size; i++)
+    {
+        sum+=arr[i];
+    }
+    return sum;
+}
+void PrintArray (int *arr, int arr_size)
+{
+    int i;
+    for (i = 0; i <= arr_size;i++)
+    {
+        printf("%3d ", arr[i]);
+    }
+    printf("\n");
+}
+void Group(int *in_array, int *partition1, int *partition2, int *p1Size, int *p2Size, int in_size)
+{
+    int i = 0;
+    int p1 = 0, p2 = 0;
+    int sum1 = 0, sum2 = 0;
+    int last = in_size;
+    partition1[p1] = in_array[last];
+    p1++;
+    partition2[p2] = in_array[last-1];
+    p2++;
+    sum1 = SumOfArray(partition1,p1);
+    sum2 = SumOfArray(partition2,p2);
+    for (i = in_size-2; i >= 0;i--)
+    {
+        if (sum1 > sum2)
+        {
+            partition2[p2] = in_array[i];
+            p2++;
+            sum2 = SumOfArray(partition2,p2);
+        }
+        else
+        {
+            partition1[p1] = in_array[i];
+            p1++;
+            sum1 = SumOfArray(partition1,p1);
+        }
+    }
+    (*p1Size) = p1;
+    (*p2Size) = p2;
+}
+void LevelOut(int *partition1, int *partition2, int p1Size, int p2Size)
+{
+    int sum1 = SumOfArray(partition1,p1Size);
+    int sum2 = SumOfArray(partition2,p2Size);
+    int p_difference = abs(sum1-sum2);
+    int i, j;
+    int newSum1 = sum1;
+    int newSum2 = sum2;
+    int new_pDiff = 0;
+    if (p_difference != 0)
+    for(i = 0; i <p1Size; i++)
+    {
+        for (j = 0; j <p2Size; j++)
+        {
+            newSum1 = sum1 - partition1[i] + partition2[j];
+            newSum2 = sum2 - partition2[j] + partition1[i];
+            new_pDiff = abs(newSum1-newSum2);
+            if (new_pDiff < p_difference)
+            {
+                printf("\nSwitched\n");
+                printf("%d, %d\n",partition1[i],partition2[j]);
+                Swap(&partition1[i],&partition2[j]);
+                sum1 = newSum1;
+                sum2 = newSum2;
+            }
+        }
+    }
+}
+int main()
+{
+    int in_arraySize = 0, *in_array;
+    int *partition1, *partition2;
+    int p1Size = 0, p2Size = 0;
+    in_array = malloc(sizeof(int *)*SIZE);
+    partition1 = malloc(sizeof(int *)*SIZE);
+    partition2 = malloc(sizeof(int *)*SIZE);
+    FILE *in_file;      //input file
+    char *in_path;      //input path
+    in_path = (char*)malloc(sizeof(char)*255);
+
+
+    FileName(in_path);     //get File name
+    ReadFile(in_path,in_file,in_array,&in_arraySize);
+    BubbleSort(in_array, in_arraySize);
+    Group(in_array,partition1,partition2,&p1Size,&p2Size,in_arraySize);
+    LevelOut(partition1,partition2,p1Size,p2Size);
+    printf("First partition: ");PrintArray(partition1,p1Size-1);
+    printf("Sum1: %d\n",SumOfArray(partition1,p1Size));
+    printf("\n");
+    printf("Second partition: ");PrintArray(partition2,p2Size-1);
+    printf("Sum2: %d\n",SumOfArray(partition2,p2Size));
+    free(in_array);
+    in_array = NULL;
+    free(partition1);
+    partition1 = NULL;
+    free(partition2);
+    partition2 = NULL;
+    return 0;
+}
